@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Who We Serve • Moneyvesta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --ink: #0D1328;
+      --text: #2A2E3B;
+      --gold: #A78945;
+      --muted: rgba(15, 21, 44, 0.65);
+      --card-bg: rgba(255,255,255,0.95);
+      --border: rgba(168, 133, 69, 0.2);
+      --shadow: 0 20px 40px rgba(13,19,40,0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: linear-gradient(135deg, #fbfbfd 0%, #f6f3ea 100%);
+      padding: 60px 20px;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      padding: 80px 0;
+      background: linear-gradient(135deg, rgba(13,19,40,0.04) 0%, rgba(255,255,255,0.8) 100%);
+      border-radius: 24px;
+      margin-bottom: 80px;
+      box-shadow: var(--shadow);
+    }
+
+    .mv-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(26px, 3.2vw, 34px);
+      line-height: 1.22;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.2px;
+      margin-bottom: 24px;
+    }
+
+    .mv-sub {
+      font-family: "Inter", system-ui, sans-serif !important;
+      font-size: 15.5px;
+      color: var(--text);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    /* EYEBROW */
+    .mv-diff-light__eyebrow {
+      font-family: "Inter", system-ui, sans-serif !important;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.95;
+      margin: 0 0 10px;
+      padding-bottom: 6px;
+      position: relative;
+    }
+
+    .mv-diff-light__eyebrow::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    /* EDITORIAL INTRO */
+    .editorial {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .mv-paragraph {
+      font-size: 15.5px;
+      color: var(--text);
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    /* CARDS GRID - 2 CARDS PER ROW */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-bottom: 100px;
+    }
+
+    .mv-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 36px 28px;
+      border: 1px solid rgba(168,133,69,0.1);
+      box-shadow: var(--shadow);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mv-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), #d4af37);
+    }
+
+    .mv-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 32px 60px rgba(13,19,40,0.18);
+    }
+
+    .mv-card-icon {
+      font-size: 40px;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .mv-card-title {
+      font-family: "Playfair Display", ui-serif;
+      font-size: clamp(15px,1.3vw,18px);
+      margin: 0 0 12px;
+      line-height: 1.22;
+      color: var(--ink);
+    }
+
+    .mv-card-des {
+      color: var(--text);
+      margin: 0 0 18px;
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .mv-card-points {
+      font-family: "Inter", system-ui, sans-serif !important;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 3px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .mv-card-points li::before {
+      content: '▸';
+      color: var(--gold);
+      margin-right: 8px;
+    }
+
+    /* DETAILED SECTIONS */
+    .detailed-section {
+      margin-bottom: 80px;
+      padding: 60px 0;
+      border-bottom: 1px solid rgba(168,133,69,0.1);
+    }
+
+    .detailed-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .detailed-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* CONSISTENT APPROACH SECTION */
+    .approach-section {
+      background: linear-gradient(135deg, rgba(168,133,69,0.03) 0%, rgba(255,255,255,0.9) 100%);
+      border-radius: 24px;
+      padding: 80px 40px;
+      margin: 100px 0;
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .persona-grid { grid-template-columns: 1fr; gap: 24px; }
+      body { padding: 40px 16px; }
+      .hero { padding: 60px 0; }
+      .detailed-section { padding: 40px 0; }
+      .approach-section { padding: 60px 20px; margin: 60px 0; }
+    }
+
+    @media (max-width: 480px) {
+      .mv-card { padding: 28px 20px; }
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 80px 0;
+      background: linear-gradient(135deg, rgba(168,133,69,0.05) 0%, rgba(255,255,255,0.9) 100%);
+      border-radius: 24px;
+      margin-top: 60px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), #d4af37);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      margin-top: 24px;
+      transition: all 0.3s ease;
+      box-shadow: 0 12px 30px rgba(168,133,69,0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(168,133,69,0.4);
+    }
+
+    .small-gray {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <h1 class="mv-title">Who We Serve</h1>
+      <p class="mv-sub">Moneyvesta is built for individuals with complex financial lives, high responsibility, and limited time. We work best with clients who value clarity, structure, and long term thinking, and who expect advice to be independent, research driven, and deliberate.</p>
+    </section>
+
+    <!-- EDITORIAL INTRO -->
+    <section class="editorial">
+      <div class="mv-diff-light__eyebrow">A Deliberate Client Focus</div>
+      <h2 class="mv-title">A Deliberate Client Focus</h2>
+      <p class="mv-paragraph">We do not try to serve everyone. Our advisory work is designed for individuals whose financial decisions carry real consequences, professionally, personally, or across generations. These are clients who prefer fewer decisions, better decisions, and a long term framework they can trust. This page outlines the primary client profiles we work with, and why our approach fits their context.</p>
+      <div class="small-gray">
+        <i class="fas fa-grip-lines"></i>
+        Cards below summarise who Moneyvesta works best with. Detailed editorial content follows for each profile.
+      </div>
+    </section>
+
+    <!-- PERSONA CARDS - 2 PER ROW -->
+    <section class="persona-grid">
+      <!-- CARD 1 -->
+      <div class="mv-card">
+        <i class="fas fa-briefcase mv-card-icon"></i>
+        <div class="mv-diff-light__eyebrow">CXOs and Senior Leaders</div>
+        <h3 class="mv-card-title">Clear Thinking for High Stakes Decisions</h3>
+        <p class="mv-card-des">When time is scarce and decisions carry real consequences, wealth needs structure. We work with senior leaders who want clarity and discipline, not noise.</p>
+        <ul class="mv-card-points">
+          <li>High stakes decision making</li>
+          <li>Limited time availability</li>
+          <li>Need for financial clarity</li>
+        </ul>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="mv-card">
+        <i class="fas fa-graduation-cap mv-card-icon"></i>
+        <div class="mv-diff-light__eyebrow">IIT IIM NIT ISB Alumni</div>
+        <h3 class="mv-card-title">Logic First, Research Backed</h3>
+        <p class="mv-card-des">Analytical minds expect evidence, not persuasion. Our advisory resonates with those who value process, data integrity, and long term reasoning.</p>
+        <ul class="mv-card-points">
+          <li>First principles thinking</li>
+          <li>Evidence based decisions</li>
+          <li>Long term reasoning</li>
+        </ul>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="mv-card">
+        <i class="fas fa-globe mv-card-icon"></i>
+        <div class="mv-diff-light__eyebrow">Global Indians and NRIs</div>
+        <h3 class="mv-card-title">Managing Wealth Across Borders</h3>
+        <p class="mv-card-des">Living globally often leads to fragmented finances. We help global Indians bring coherence to assets, obligations, and goals rooted in India.</p>
+        <ul class="mv-card-points">
+          <li>Cross border complexity</li>
+          <li>India focused goals</li>
+          <li>Asset coherence</li>
+        </ul>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="mv-card">
+        <i class="fas fa-user-md mv-card-icon"></i>
+        <div class="mv-diff-light__eyebrow">Doctors and Medical Professionals</div>
+        <h3 class="mv-card-title">Built for Demanding Careers</h3>
+        <p class="mv-card-des">Long hours and high responsibility leave little room for complexity. We work with doctors who want their wealth handled with the same care they give patients.</p>
+        <ul class="mv-card-points">
+          <li>High responsibility careers</li>
+          <li>Long working hours</li>
+          <li>Careful wealth handling</li>
+        </ul>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="mv-card">
+        <i class="fas fa-rocket mv-card-icon"></i>
+        <div class="mv-diff-light__eyebrow">Founders and Startup Leaders</div>
+        <h3 class="mv-card-title">Navigating Growth, Risk and Liquidity</h3>
+        <p class="mv-card-des">Founder wealth is rarely linear. We help bring balance as businesses and personal stakes evolve over time.</p>
+        <ul class="mv-card-points">
+          <li>Non linear wealth paths</li>
+          <li>Business personal balance</li>
+          <li>Growth stage adaptation</li>
+        </ul>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="mv-card">
+        <i class="fas fa-chart-line mv-card-icon"></i>
+        <div class="mv-diff-light__eyebrow">Business Owners and Promoters</div>
+        <h3 class="mv-card-title">Beyond the Operating Business</h3>
+        <p class="mv-card-des">Successful businesses create capital. Preserving and redeploying it is a different skill. We work with owners who separate personal wealth from business cycles.</p>
+        <ul class="mv-card-points">
+          <li>Capital preservation</li>
+          <li>Wealth redeployment</li>
+          <li>Business cycle separation</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 4: DETAILED PERSONA CONTENT -->
+    <section class="detailed-section">
+      <div class="detailed-content">
+        <div class="mv-diff-light__eyebrow">CXOs and Senior Leaders</div>
+        <h2 class="mv-title">CXOs and Senior Leaders</h2>
+        <p class="mv-paragraph">Senior leaders operate in environments where decisions carry lasting consequences. Professional responsibilities are high, time is limited, and fragmented financial advice creates unnecessary distraction. We work with CXOs and senior leaders who want a structured approach to wealth, one that supports disciplined decision making and removes financial noise from an already demanding life.</p>
+      </div>
+    </section>
+
+    <section class="detailed-section">
+      <div class="detailed-content">
+        <div class="mv-diff-light__eyebrow">IIT IIM NIT ISB Alumni</div>
+        <h2 class="mv-title">IIT IIM NIT ISB Alumni</h2>
+        <p class="mv-paragraph">Clients from analytical and academic backgrounds often approach financial decisions with first principles thinking. They question assumptions, value evidence, and prefer logic over narratives. Our advisory approach fits those who expect intellectual honesty, transparent reasoning, and decisions grounded in long term data rather than short term opinion.</p>
+      </div>
+    </section>
+
+    <section class="detailed-section">
+      <div class="detailed-content">
+        <div class="mv-diff-light__eyebrow">Global Indians and NRIs</div>
+        <h2 class="mv-title">Global Indians and NRIs</h2>
+        <p class="mv-paragraph">Living outside India often means assets, obligations, and goals spread across geographies. Without structure, this fragmentation can lead to inefficiency and uncertainty. We work with global Indians and NRIs who want a clear India focused advisory relationship, one that brings alignment to wealth regardless of where life or career takes them.</p>
+      </div>
+    </section>
+
+    <section class="detailed-section">
+      <div class="detailed-content">
+        <div class="mv-diff-light__eyebrow">Doctors and Medical Professionals</div>
+        <h2 class="mv-title">Doctors and Medical Professionals</h2>
+        <p class="mv-paragraph">Medical professionals operate under constant pressure, long hours, and high responsibility. Financial complexity is often an unnecessary burden in an already demanding career. We work with doctors who want a reliable and thoughtful approach to wealth, allowing them to focus on their profession with confidence that financial decisions are handled with care.</p>
+      </div>
+    </section>
+
+    <section class="detailed-section">
+      <div class="detailed-content">
+        <div class="mv-diff-light__eyebrow">Founders and Startup Leaders</div>
+        <h2 class="mv-title">Founders and Startup Leaders</h2>
+        <p class="mv-paragraph">Founder wealth evolves differently from salaried wealth. Equity concentration, liquidity events, and changing priorities require careful balance over time. We work with founders who want perspective beyond the operating business and a long term approach that adapts as both business and personal stakes change.</p>
+      </div>
+    </section>
+
+    <section class="detailed-section">
+      <div class="detailed-content">
+        <div class="mv-diff-light__eyebrow">Business Owners and Promoters</div>
+        <h2 class="mv-title">Business Owners and Promoters</h2>
+        <p class="mv-paragraph">Business success creates capital, but preserving and deploying that capital requires a different mindset. Operating cycles and personal wealth should not always move together. We work with business owners who want to separate personal wealth from business volatility and focus on continuity, stability, and long term outcomes.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CONSISTENT ADVISORY APPROACH -->
+    <section class="approach-section">
+      <div class="mv-diff-light__eyebrow">A Consistent Advisory Approach</div>
+      <h2 class="mv-title">A Consistent Advisory Approach</h2>
+      <p class="mv-paragraph">Across all client profiles, our advisory philosophy remains consistent. We focus on long term planning rather than short term activity. Advice is fee only and independent. Decisions are structured, reviewed periodically, and aligned with life changes rather than market noise. This consistency allows clients to engage with confidence, knowing their wealth is managed with discipline and intent.</p>
+    </section>
+
+    <!-- SECTION 6: CTA -->
+    <section class="cta-section">
+      <div class="mv-diff-light__eyebrow">Start With a Conversation</div>
+      <h2 class="mv-title">Start With a Conversation</h2>
+      <p class="mv-paragraph">If you see your situation reflected in the profiles above, a conversation is often the right place to begin. Our process starts with understanding context, not selling products.</p>
+      <a href="#contact" class="cta-button">Request a Private Consultation</a>
+    </section>
+  </div>
+</body>
+</html>

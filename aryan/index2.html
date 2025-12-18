@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Who We Serve</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#0D1328;
+      --text:#2A2E3B;
+      --gold:#A78945;
+      --muted: rgba(15, 21, 44, 0.65);
+      --card:#0F2038;                 /* blue card background */
+      --border: rgba(255,255,255,0.12);
+      --bg1:#fbfbfd;
+      --bg2:#f6f3ea;
+      --shadow: 0 18px 40px rgba(13,19,40,0.10);
+    }
+
+    *{ box-sizing:border-box; }
+    body{ margin:0; background: linear-gradient(180deg, var(--bg1), #ffffff 38%, var(--bg2)); }
+
+    .mv-who{
+      padding: 64px 0;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .mv-who::before{
+      content:"";
+      position:absolute;
+      inset:-200px -120px auto auto;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle at 30% 30%, rgba(167,137,69,0.35), rgba(167,137,69,0.00) 62%);
+      z-index:-1;
+      pointer-events:none;
+    }
+
+    .mv-container{
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Eyebrow */
+    .mv-diff-light__eyebrow{
+      font-family: "Inter", system-ui, sans-serif !important;
+      position: relative;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #A78945;
+      opacity: 0.95;
+      padding: 0;
+      margin: 0 0 10px;
+      padding-bottom: 6px;
+    }
+
+    /* Main Title */
+    .mv-title{
+      font-family: "Playfair Display", serif;
+      font-size: clamp(26px, 3.2vw, 34px);
+      line-height: 1.22;
+      font-weight: 700;
+      color: #0D1328;
+      letter-spacing: -0.2px !important;
+      margin: 0 0 10px;
+    }
+
+    /* Sub + Paragraph */
+    .mv-sub,
+    .mv-paragraph{
+      font-family: "Inter", system-ui, sans-serif !important;
+      font-size: 15.5px;
+      color: #2A2E3B;
+      line-height: 1.65;
+      margin: 0;
+      max-width: 76ch;
+    }
+
+    /* Small gray capitalised */
+    .mv-kicker{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(15, 21, 44, 0.65);
+      margin: 0 0 8px;
+      font-family: "Inter", system-ui, sans-serif !important;
+    }
+
+    /* HERO – blue background */
+    .mv-hero{
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 22px;
+      padding: 22px 22px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: radial-gradient(circle at 0% 0%, rgba(167,137,69,0.25), transparent 55%),
+                  linear-gradient(135deg, #0A1830, #163A80);
+      box-shadow: 0 18px 40px rgba(5,10,30,0.55);
+      backdrop-filter: blur(6px);
+    }
+
+    .mv-hero .mv-title{
+      color:#ffffff;
+    }
+
+    .mv-hero .mv-diff-light__eyebrow{
+      color:#F2D8A0;
+    }
+
+    .mv-hero .mv-sub{
+      color: rgba(255,255,255,0.88);
+    }
+
+    .mv-hero-media{
+      justify-self: end;
+      width: min(380px, 100%);
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: radial-gradient(circle at 30% 20%, rgba(167,137,69,0.34), rgba(13,19,40,0.0) 55%),
+                  linear-gradient(135deg, rgba(13,19,40,0.92), rgba(13,19,40,0.78));
+      box-shadow: var(--shadow);
+    }
+
+    .mv-hero-media img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      opacity: 0.95;
+      mix-blend-mode: screen;
+      filter: contrast(1.05) saturate(1.05);
+    }
+
+    .mv-hero-badges{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .mv-badge{
+      font-family: "Inter", system-ui, sans-serif !important;
+      font-size: 12px;
+      color: rgba(13,19,40,0.9);
+      background: rgba(255,255,255,0.90);
+      border: 1px solid rgba(13,19,40,0.10);
+      border-radius: 999px;
+      padding: 7px 10px;
+    }
+
+    /* Intro */
+    .mv-intro{
+      margin: 16px 0 16px;
+      padding: 0 6px;
+    }
+
+    /* Cards grid: 2 desktop, 1 tablet/laptop */
+    .mv-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .mv-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 16px 14px;
+      box-shadow: 0 10px 26px rgba(13,19,40,0.20);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mv-card::before{
+      content:"";
+      position:absolute;
+      inset: -40px -40px auto auto;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.10), rgba(0,0,0,0) 70%);
+      z-index:0;
+      pointer-events:none;
+    }
+
+    .mv-card-top{
+      display:flex;
+      gap: 10px;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mv-icon{
+      flex: 0 0 34px;
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      border: 1px solid rgba(167,137,69,0.28);
+      background: linear-gradient(180deg, rgba(167,137,69,0.16), rgba(167,137,69,0.06));
+      display:grid;
+      place-items:center;
+    }
+
+    .mv-icon svg{ width:18px; height:18px; fill: var(--gold); }
+
+    .mv-card-title{
+      font-family:"Playfair Display", ui-serif;
+      font-size: clamp(15px, 1.3vw, 18px);
+      margin: 0 0 4px;
+      line-height: 1.22;
+      color: #ffffff;
+    }
+
+    .mv-card-desc{
+      color: rgba(255,255,255,0.88);
+      margin: 0 0 8px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      font-family: "Inter", system-ui, sans-serif !important;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mv-card-points{
+      font-family: "Inter", system-ui, sans-serif !important;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 3px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.85);
+      position: relative;
+      z-index: 1;
+    }
+
+    .mv-card-points li{
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .mv-card-points li::before{
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--gold);
+    }
+
+    .mv-cta{
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(13,19,40,0.10);
+    }
+
+    .mv-button{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: var(--ink);
+      color: #fff;
+      text-decoration: none;
+      font-family: "Inter", system-ui, sans-serif !important;
+      font-size: 14px;
+      border: 1px solid rgba(13,19,40,0.10);
+      box-shadow: 0 12px 24px rgba(13,19,40,0.14);
+    }
+
+    .mv-button:hover{ filter: brightness(1.05); }
+
+    @media (max-width: 1024px){
+      .mv-hero{ grid-template-columns: 1fr; padding: 18px; }
+      .mv-hero-media{ justify-self: start; width: 100%; max-width: 520px; }
+      .mv-grid{ grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px){
+      .mv-who{ padding: 46px 0; }
+      .mv-container{ width: min(1120px, calc(100% - 28px)); }
+      .mv-card{ padding: 14px; }
+      .mv-badge{ font-size: 11px; }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="mv-who">
+    <div class="mv-container">
+
+      <!-- HERO -->
+      <header class="mv-hero">
+        <div>
+          <p class="mv-diff-light__eyebrow">Who we serve</p>
+          <h1 class="mv-title">Who We Serve</h1>
+          <p class="mv-sub">
+            Moneyvesta is built for individuals with complex financial lives, high responsibility, and limited time. We work best with clients who value clarity, structure, and long term thinking, and who expect advice to be independent, research driven, and deliberate.
+          </p>
+
+          <div class="mv-hero-badges" aria-label="Trust signals">
+            <span class="mv-badge">Independent</span>
+            <span class="mv-badge">Research-driven</span>
+            <span class="mv-badge">Long-term</span>
+          </div>
+        </div>
+
+        <div class="mv-hero-media" aria-hidden="true">
+          <!-- replace with any premium finance/meeting image -->
+          <img
+            src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=70"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+      </header>
+
+      <!-- INTRO -->
+      <div class="mv-intro">
+        <p class="mv-kicker">A deliberate client focus</p>
+        <h2 class="mv-title">A Deliberate Client Focus</h2>
+        <p class="mv-paragraph">
+          We do not try to serve everyone. Our advisory work is designed for individuals whose financial decisions carry real consequences, professionally, personally, or across generations. These are clients who prefer fewer decisions, better decisions, and a long term framework they can trust. This page outlines the primary client profiles we work with, and why our approach fits their context.
+        </p>
+      </div>
+
+      <!-- CARDS -->
+      <div class="mv-grid">
+
+        <article class="mv-card">
+          <div class="mv-card-top">
+            <div class="mv-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7v3a5 5 0 0 0 5 5h4a5 5 0 0 0 5-5V9a7 7 0 0 0-7-7Zm-5 10V9a5 5 0 0 1 10 0v3a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3Z"/></svg>
+            </div>
+            <div>
+              <p class="mv-diff-light__eyebrow">CXOs and Senior Leaders</p>
+              <h3 class="mv-card-title">Clear Thinking for High Stakes Decisions</h3>
+            </div>
+          </div>
+          <p class="mv-card-desc">
+            When time is scarce and decisions carry real consequences, wealth needs structure. We work with senior leaders who want clarity and discipline, not noise.
+          </p>
+          <ul class="mv-card-points">
+            <li>Structured decision-making support.</li>
+            <li>Less distraction from fragmented advice.</li>
+            <li>Periodic reviews aligned to life changes.</li>
+          </ul>
+        </article>
+
+        <article class="mv-card">
+          <div class="mv-card-top">
+            <div class="mv-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16v2H4V4Zm0 4h10v2H4V8Zm0 4h16v2H4v-2Zm0 4h10v2H4v-2Z"/></svg>
+            </div>
+            <div>
+              <p class="mv-diff-light__eyebrow">IIT IIM NIT ISB Alumni</p>
+              <h3 class="mv-card-title">Logic First, Research Backed</h3>
+            </div>
+          </div>
+          <p class="mv-card-desc">
+            Analytical minds expect evidence, not persuasion. Our advisory resonates with those who value process, data integrity, and long term reasoning.
+          </p>
+          <ul class="mv-card-points">
+            <li>Evidence-led recommendations.</li>
+            <li>Transparent reasoning and assumptions.</li>
+            <li>Long-term framework over short-term opinion.</li>
+          </ul>
+        </article>
+
+        <article class="mv-card">
+          <div class="mv-card-top">
+            <div class="mv-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2 1 7l11 5 9-4.09V17h2V7L12 2Zm0 12L3 9v8l9 5 9-5V9l-9 5Z"/></svg>
+            </div>
+            <div>
+              <p class="mv-diff-light__eyebrow">Global Indians and NRIs</p>
+              <h3 class="mv-card-title">Managing Wealth Across Borders</h3>
+            </div>
+          </div>
+          <p class="mv-card-desc">
+            Living globally often leads to fragmented finances. We help global Indians bring coherence to assets, obligations, and goals rooted in India.
+          </p>
+          <ul class="mv-card-points">
+            <li>Coherence across geographies.</li>
+            <li>India-focused advisory relationship.</li>
+            <li>Alignment of assets, obligations, and goals.</li>
+          </ul>
+        </article>
+
+        <article class="mv-card">
+          <div class="mv-card-top">
+            <div class="mv-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7v3a5 5 0 0 0 5 5h4a5 5 0 0 0 5-5V9a7 7 0 0 0-7-7Zm-5 10V9a5 5 0 0 1 10 0v3a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3Z"/></svg>
+            </div>
+            <div>
+              <p class="mv-diff-light__eyebrow">Doctors and Medical Professionals</p>
+              <h3 class="mv-card-title">Built for Demanding Careers</h3>
+            </div>
+          </div>
+          <p class="mv-card-desc">
+            Long hours and high responsibility leave little room for complexity. We work with doctors who want their wealth handled with the same care they give patients.
+          </p>
+          <ul class="mv-card-points">
+            <li>Reduced complexity and admin load.</li>
+            <li>Reliable, thoughtful planning.</li>
+            <li>Handled with care and discipline.</li>
+          </ul>
+        </article>
+
+        <article class="mv-card">
+          <div class="mv-card-top">
+            <div class="mv-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3 2 9l10 6 10-6-10-6Zm0 9L4 8.5 12 4l8 4.5L12 12Zm-8 2v6l8 4 8-4v-6l-8 4-8-4Z"/></svg>
+            </div>
+            <div>
+              <p class="mv-diff-light__eyebrow">Founders and Startup Leaders</p>
+              <h3 class="mv-card-title">Navigating Growth, Risk and Liquidity</h3>
+            </div>
+          </div>
+          <p class="mv-card-desc">
+            Founder wealth is rarely linear. We help bring balance as businesses and personal stakes evolve over time.
+          </p>
+          <ul class="mv-card-points">
+            <li>Support through non-linear wealth paths.</li>
+            <li>Balance across business and personal stakes.</li>
+            <li>Long-term perspective as priorities change.</li>
+          </ul>
+        </article>
+
+        <article class="mv-card">
+          <div class="mv-card-top">
+            <div class="mv-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 11h18v10H3V11Zm2 2v6h14v-6H5ZM7 3h10v6H7V3Zm2 2v2h6V5H9Z"/></svg>
+            </div>
+            <div>
+              <p class="mv-diff-light__eyebrow">Business Owners and Promoters</p>
+              <h3 class="mv-card-title">Beyond the Operating Business</h3>
+            </div>
+          </div>
+          <p class="mv-card-desc">
+            Successful businesses create capital. Preserving and redeploying it is a different skill. We work with owners who separate personal wealth from business cycles.
+          </p>
+          <ul class="mv-card-points">
+            <li>Separation from operating cycles.</li>
+            <li>Preservation + redeployment mindset.</li>
+            <li>Focus on continuity and stability.</li>
+          </ul>
+        </article>
+
+      </div>
+
+      <!-- CTA -->
+      <footer class="mv-cta" id="contact">
+        <h2 class="mv-title">Start With a Conversation</h2>
+        <p class="mv-paragraph">
+          If you see your situation reflected in the profiles above, a conversation is often the right place to begin. Our process starts with understanding context, not selling products.
+        </p>
+        <a class="mv-button" href="#request">Request a Private Consultation</a>
+      </footer>
+
+    </div>
+  </section>
+</body>
+</html>
